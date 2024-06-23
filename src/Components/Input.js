@@ -1,13 +1,13 @@
-import {MDBInput} from 'mdb-react-ui-kit';
+import { MDBInput } from 'mdb-react-ui-kit';
 
-function Input({wrapperClass, label, id, type, size}) {
+function Input({ wrapperClass, label, id, type, size }) {
   return (
-    <MDBInput 
-    wrapperClass={wrapperClass} 
-    label={label} 
-    id={id} 
-    type={type} 
-    size={size} />
+    <MDBInput
+      wrapperClass={wrapperClass}
+      label={label}
+      id={id}
+      type={type}
+      size={size} />
   );
 }
 
