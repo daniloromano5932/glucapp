@@ -2,7 +2,6 @@ import {
   MDBContainer,
   MDBCard,
   MDBCardBody,
-  MDBCardImage,
   MDBRow,
   MDBCol
 }
@@ -10,6 +9,7 @@ import {
 import Button from '../Components/Button';
 import Input from '../Components/Input';
 import Logo from '../Components/Logo';
+import Image from '../Components/Image';
 import LegalFooter from '../Components/LegalFooter';
 
 function Signup() {
@@ -18,7 +18,11 @@ function Signup() {
       <MDBCard>
         <MDBRow className='g-0'>
           <MDBCol md='6'>
-            <MDBCardImage src='./images/benefits-of-medical-technology (1).jpg' alt="login form" className='rounded-start w-100' />
+          <Image
+          src='./images/1692875112654.png' 
+          alt="signup form" 
+          className='rounded-start w-100'
+          />
           </MDBCol>
           <MDBCol md='6'>
             <MDBCardBody className='d-flex flex-column'>

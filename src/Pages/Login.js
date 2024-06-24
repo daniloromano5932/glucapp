@@ -2,15 +2,16 @@ import {
   MDBContainer,
   MDBCard,
   MDBCardBody,
-  MDBCardImage,
   MDBRow,
   MDBCol
 }
   from 'mdb-react-ui-kit';
+  
 import {Link} from "react-router-dom";
 import Button from '../Components/Button';
 import Input from '../Components/Input';
 import Logo from '../Components/Logo';
+import Image from '../Components/Image';
 import LegalFooter from '../Components/LegalFooter';
 
 function Login() {
@@ -19,7 +20,11 @@ function Login() {
       <MDBCard>
         <MDBRow className='g-0'>
           <MDBCol md='6'>
-            <MDBCardImage src='./images/benefits-of-medical-technology (1).jpg' alt="login form" className='rounded-start w-100' />
+          <Image
+          src='./images/benefits-of-medical-technology (1).jpg' 
+          alt="login form" 
+          className='rounded-start w-100'
+          />
           </MDBCol>
           <MDBCol md='6'>
             <MDBCardBody className='d-flex flex-column'>

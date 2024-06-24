@@ -5,6 +5,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import Signup from './Pages/Signup';
+import UserProfile from './Pages/UserProfile';
 
 
 
@@ -25,6 +26,8 @@ function App() {
     <Routes>
       <Route path='/login' element={<Login/>} />
       <Route path='/signup' element={<Signup/>} />
+      <Route path='/user' element={<UserProfile/>} />
+
     </Routes>
     </BrowserRouter>
   );
