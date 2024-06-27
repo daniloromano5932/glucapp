@@ -9,11 +9,14 @@ import {
 import dummyUser from '../dummyUser';
 import Button from '../Components/Button';
 import UserProfileRow from '../Components/UserProfileRow';
+import AverageMeasurement from "../Components/AverageMeasurement";
 
 function UserProfile() {
+
   const list = Object.keys(dummyUser);
 
   return (
+    <div>
     <MDBContainer className="py-5">
       <MDBRow className='g-0'>
         <MDBCardImage
@@ -52,7 +55,15 @@ function UserProfile() {
         </MDBCard>
       </MDBCol>
     </MDBContainer >
+
+  <AverageMeasurement className="square bg-primary rounded-circle "/> 
+
+
+
+</div>
   );
 }
 
 export default UserProfile;
+
+// https://recharts.org/en-US/examples/LegendEffectOpacity
