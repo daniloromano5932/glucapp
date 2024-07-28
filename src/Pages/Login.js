@@ -6,8 +6,8 @@ import {
   MDBCol
 }
   from 'mdb-react-ui-kit';
-  
-import {Link} from "react-router-dom";
+
+  import {Link} from "react-router-dom";
 import Button from '../Components/Button';
 import Input from '../Components/Input';
 import Logo from '../Components/Logo';
@@ -15,6 +15,11 @@ import Image from '../Components/Image';
 import LegalFooter from '../Components/LegalFooter';
 
 function Login() {
+
+  
+
+
+
   return (
     <MDBContainer className="my-5">
       <MDBCard>
@@ -32,7 +37,7 @@ function Login() {
               <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: '1px' }}>Sign into your account</h5>
               <Input
                 label='Email addres'
-                id='formControlLg'
+                id='email'
                 type='email'
                 size="lg"
                 wrapperClass='mb-4'
@@ -40,7 +45,7 @@ function Login() {
               <Input
                 wrapperClass='mb-4'
                 label='Password'
-                id='formControlLg'
+                id='password'
                 type='password'
                 size="lg" />
               <Button

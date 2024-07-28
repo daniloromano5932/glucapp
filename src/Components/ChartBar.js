@@ -1,33 +1,31 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+ 
+function ChartBar() {
 
-
-function ChartLine() {
-
-  const [weight, setWeight] = useState([]);
+  const [heartRate, setHeartRate] = useState([]);
 
   useEffect(() => {
     const data = async () => {
       await axios
-        .get('http://localhost:8000/measurements/weight?time_period=100', {
+        .get('http://localhost:8000/measurements/heart_rate?time_period=100', {
           headers: {
             user_id: 1
           }
         })
         .then((res) => {
-          setWeight(res.data)
+          setHeartRate(res.data)
         })
         .catch((err => console.log(err)))
     }
     data();
-  }, [])
+  }, []);
 
-
-  const dataWeight = weight.map((item) => {
+  const dataHeart = heartRate.map((item) => {
     const data = {
       name: new Date(item.date).toLocaleDateString(),
-      Weight: item.value,
+      Heart: item.value,
     }
     return data;
   })
@@ -35,10 +33,10 @@ function ChartLine() {
   return (
     <div style={{ width: '100%', height: 300 }}>
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart
+        <BarChart
           width={500}
           height={300}
-          data={dataWeight}
+          data={dataHeart}
           margin={{
             top: 5,
             right: 30,
@@ -51,11 +49,11 @@ function ChartLine() {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dot={false} dataKey="Weight" stroke="#8884d8" activeDot={{ r: 8 }} />
-        </LineChart>
+          <Bar dataKey="Heart" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
+        </BarChart>
       </ResponsiveContainer>
     </div>
   );
 }
 
-export default ChartLine;
+export default ChartBar;
