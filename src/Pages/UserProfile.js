@@ -22,7 +22,7 @@ function UserProfile() {
   useEffect(() => {
     const data = async () => {
       await axios
-        .get('http://localhost:8000/average_measurements?time_period=200', {
+        .get('http://localhost:8000/measurements/average_measurements?time_period=400', {
           headers: {
             user_id: 1
           }
@@ -45,13 +45,12 @@ function UserProfile() {
   useEffect(() => {
     const userInfo = async () => {
       await axios
-        .get('http://localhost:8000/user_info', {
+        .get('http://localhost:8000/user/user_info', {
           headers: {
-            user_id: 8
+            user_id: 1
           }
         })
         .then((res) => {
-
           setUserDetails({
         "first_name": res.data[0].first_name,
         "surname": res.data[0].surname,

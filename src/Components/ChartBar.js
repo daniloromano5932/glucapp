@@ -9,7 +9,7 @@ function ChartBar() {
   useEffect(() => {
     const data = async () => {
       await axios
-        .get('http://localhost:8000/measurements/heart_rate?time_period=100', {
+        .get('http://localhost:8000/measurements/unitary/heart_rate?time_period=400', {
           headers: {
             user_id: 1
           }
