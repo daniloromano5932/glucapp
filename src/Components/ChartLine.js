@@ -10,7 +10,7 @@ function ChartLine() {
   useEffect(() => {
     const data = async () => {
       await axios
-        .get('http://localhost:8000/measurements/unitary/weight?time_period=400', {
+        .get('http://localhost:8000/measurements/unitary/weight?time_period=200', {
           headers: {
             user_id: 1
           }
