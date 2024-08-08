@@ -35,7 +35,6 @@ function UserProfile() {
             "averageMinBloodPressure": res.data.averageMinBloodPressure,
             "averageWeight": res.data.averageWeight
           })
-          console.log("response: ", res)
         })
         .catch((err => console.log(err)))
     }
@@ -61,7 +60,6 @@ function UserProfile() {
         "codice_fiscale": res.data[0].codice_fiscale,
         "sex": res.data[0].sex
           })
-          console.log("response: ", res.date_of_birth)
         })
         .catch((err => console.log(err)))
     }

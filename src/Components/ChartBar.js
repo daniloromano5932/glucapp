@@ -1,28 +1,18 @@
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
- 
+import useFetch from '../hooks/useFetch';
+
 function ChartBar() {
 
-  const [heartRate, setHeartRate] = useState([]);
-
-  useEffect(() => {
-    const data = async () => {
-      await axios
-        .get('http://localhost:8000/measurements/unitary/heart_rate?time_period=200', {
-          headers: {
-            user_id: 1
-          }
-        })
-        .then((res) => {
-          setHeartRate(res.data)
-        })
-        .catch((err => console.log(err)))
+  const { data, loading, error } = useFetch('http://localhost:8000/measurements/unitary/heart_rate?time_period=200', {
+    headers: {
+      user_id: 1
     }
-    data();
-  }, []);
+  });
 
-  const dataHeart = heartRate.map((item) => {
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const dataHeart = data.map((item) => {
     const data = {
       name: new Date(item.date).toLocaleDateString(),
       Heart: item.value,

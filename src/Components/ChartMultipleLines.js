@@ -1,29 +1,19 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-
+import useFetch from '../hooks/useFetch';
 
 function ChartMultipleLines() {
 
-  const [bloodPressure, setBloodPressure] = useState([]);
-  useEffect(() => {
-    const data = async () => {
-      await axios
-        .get('http://localhost:8000/measurements/unitary/blood_pressure?time_period=400', {
-          headers: {
-            user_id: 1
-          }
-        })
-        .then((res) => {
-          setBloodPressure(res.data)
-        })
-        .catch((err => console.log(err)))
+  const { data, loading, error } = useFetch('http://localhost:8000/measurements/unitary/blood_pressure?time_period=200', {
+    headers: {
+      user_id: 1
     }
-    data();
-  }, [])
+  });
 
-  const dataPressure = bloodPressure.map((item) => {
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const dataPressure = data.map((item) => {
     const data = {
       name: new Date(item.date).toLocaleDateString(),
       Max: item.max_value,

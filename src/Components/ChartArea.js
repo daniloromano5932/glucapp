@@ -1,34 +1,22 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
- 
+import useFetch from '../hooks/useFetch';
 
 function ChartArea() {
-  const [weight, setWeight] = useState([]);
 
-
-  useEffect(() => {
-    const data = async () => {
-      await axios
-        .get('http://localhost:8000/measurements/unitary/glycemia?time_period=200', {
-          headers: {
-            user_id: 1
-          }
-        })
-        .then((res) => {
-          setWeight(res.data)          
-        })
-        .catch((err => console.log(err)))
+  const { data, loading, error } = useFetch('http://localhost:8000/measurements/unitary/heart_rate?time_period=200', {
+    headers: {
+      user_id: 1
     }
-    data();
-  }, [])
+  });
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
-  const dataWeight = weight.map((item) => {
+  const dataGlycemia = data.map((item) => {
     const data = {
       name: new Date(item.date).toLocaleDateString(),
       Weight: item.value,
-      }
+    }
     return data;
   })
 
@@ -36,7 +24,7 @@ function ChartArea() {
     <div style={{ width: '100%', height: 300 }}>
       <ResponsiveContainer>
         <AreaChart
-          data={dataWeight}
+          data={dataGlycemia}
           width={500}
           height={300}
           margin={{
