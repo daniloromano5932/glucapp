@@ -1,30 +1,17 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-
+import useFetch from '../hooks/useFetch';
 
 function ChartLine() {
 
-  const [weight, setWeight] = useState([]);
-
-  useEffect(() => {
-    const data = async () => {
-      await axios
-        .get('http://localhost:8000/measurements/unitary/weight?time_period=400', {
-          headers: {
-            user_id: 1
-          }
-        })
-        .then((res) => {
-          setWeight(res.data)
-        })
-        .catch((err => console.log(err)))
-    }
-    data();
-  }, [])
+  const baseURL = process.env.REACT_APP_BASE_URL;
 
 
-  const dataWeight = weight.map((item) => {
+  const { data, loading, error } = useFetch(`${baseURL}measurements/unitary/weight?time_period=200`);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const dataWeight = data.map((item) => {
     const data = {
       name: new Date(item.date).toLocaleDateString(),
       Weight: item.value,
