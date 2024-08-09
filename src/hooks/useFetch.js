@@ -7,12 +7,13 @@ function useFetch(url, options = {}) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-
         const fetchData = async () => {
             try {
                 setLoading(true); // Start loading
                 const response = await axios.get(url, {
-                    ...options,
+                    headers: {
+                        user_id: 1
+                      }
                 });
                 setData(response.data); // Update state with fetched data
             } catch (err) {
@@ -27,12 +28,9 @@ function useFetch(url, options = {}) {
         };
 
         fetchData();
-
-    
     }, []); // Depend on url and options
 
     return { data, loading, error };
-
 }
 
 export default useFetch;

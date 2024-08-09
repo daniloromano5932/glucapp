@@ -12,17 +12,15 @@ import AverageMeasurement from "../Components/AverageMeasurement";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-
-
-
 function UserProfile() {
   const [averageMeasurements, setAverageMeasurements] = useState({});
   const [userDetails, setUserDetails] = useState({});
+  const baseURL = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     const data = async () => {
       await axios
-        .get('http://localhost:8000/measurements/average_measurements?time_period=400', {
+        .get(`${baseURL}measurements/average_measurements?time_period=200`, {
           headers: {
             user_id: 1
           }
@@ -44,29 +42,27 @@ function UserProfile() {
   useEffect(() => {
     const userInfo = async () => {
       await axios
-        .get('http://localhost:8000/user/user_info', {
+        .get(`${baseURL}user/user_info`, {
           headers: {
             user_id: 1
           }
         })
         .then((res) => {
           setUserDetails({
-        "first_name": res.data[0].first_name,
-        "surname": res.data[0].surname,
-        "email": res.data[0].email,
-        "date_of_birth": res.data[0].date_of_birth,
-        "phone_number": res.data[0].phone_number,
-        "address": res.data[0].address,
-        "codice_fiscale": res.data[0].codice_fiscale,
-        "sex": res.data[0].sex
+        "First Name": res.data[0].first_name,
+        "Surname": res.data[0].surname,
+        "Eemail": res.data[0].email,
+        "Date of Birth": res.data[0].date_of_birth,
+        "Phone Number": res.data[0].phone_number,
+        "Address": res.data[0].address,
+        "Codice Fiscale": res.data[0].codice_fiscale,
+        "Sex": res.data[0].sex
           })
         })
         .catch((err => console.log(err)))
     }
     userInfo();
   }, [])
-
-
 
   const data = Object.entries(userDetails);
 

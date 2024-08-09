@@ -3,11 +3,10 @@ import useFetch from '../hooks/useFetch';
 
 function ChartLine() {
 
-  const { data, loading, error } = useFetch('http://localhost:8000/measurements/unitary/weight?time_period=200', {
-    headers: {
-      user_id: 1
-    }
-  });
+  const baseURL = process.env.REACT_APP_BASE_URL;
+
+
+  const { data, loading, error } = useFetch(`${baseURL}measurements/unitary/weight?time_period=200`);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
