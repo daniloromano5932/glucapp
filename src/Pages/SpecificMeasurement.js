@@ -15,18 +15,17 @@ function SpecificMEasurement() {
   return (
     <MDBContainer className="py-5">
       <MDBRow className='g-0'>
-        <MDBCol md='6' >
-          <MDBCard className="mb-4">
+        <MDBCol md='6' className='me-10' >
+          <MDBCard className="mb-10 me-10">
             <MDBCardBody className='d-flex flex-column' >
               <h1>WEIGHT</h1>
-              <ChartLine 
-              lassName="chart"
-              />
+              <ChartLine
+                lassName="chart" />
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
         <MDBCol md='6'>
-          <MDBCard className="mb-4">
+          <MDBCard className="mb-10 me-10">
             <MDBCardBody className='d-flex flex-column'>
               <h1>GLYCEMIA</h1>
               <ChartArea lassName="chart" />
@@ -34,7 +33,7 @@ function SpecificMEasurement() {
           </MDBCard>
         </MDBCol>
         <MDBCol md='6'>
-          <MDBCard className="mb-4">
+          <MDBCard className="mb-10">
             <MDBCardBody className='d-flex flex-column'>
               <h1>HEART RATE</h1>
               <ChartBar lassName="chart" />
@@ -42,7 +41,7 @@ function SpecificMEasurement() {
           </MDBCard>
         </MDBCol>
         <MDBCol md='6'>
-          <MDBCard className="mb-4">
+          <MDBCard className="mb-10">
             <MDBCardBody className='d-flex flex-column'>
               <h1>BLOOD PRESSURE</h1>
               <ChartMultipleLines lassName="chart" />
