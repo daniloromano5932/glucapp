@@ -1,4 +1,4 @@
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import useFetch from '../Hooks/useFetch';
 
 
@@ -14,7 +14,7 @@ function ChartArea() {
   const dataGlycemia = data.map((item) => {
     const data = {
       name: new Date(item.date).toLocaleDateString(),
-      Weight: item.value,
+      Glycemia: item.value,
     }
     return data;
   })
@@ -27,17 +27,18 @@ function ChartArea() {
           width={500}
           height={300}
           margin={{
-            top: 10,
+            top: 5,
             right: 30,
-            left: 0,
-            bottom: 0,
+            left: 20,
+            bottom: 5,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Area type="monotone" dataKey="Weight" stroke="#8884d8" fill="#8884d8" />
+          <Legend />
+          <Area type="monotone" dataKey="Glycemia" stroke="#8884d8" fill="#8884d8" />
         </AreaChart>
       </ResponsiveContainer>
     </div>
