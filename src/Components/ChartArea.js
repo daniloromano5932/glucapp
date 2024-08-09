@@ -1,5 +1,5 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import useFetch from '../hooks/useFetch';
+import useFetch from '../Hooks/useFetch';
 
 
 function ChartArea() {
