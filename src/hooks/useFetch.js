@@ -9,26 +9,26 @@ function useFetch(url, options = {}) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setLoading(true); // Start loading
+                setLoading(true);
                 const response = await axios.get(url, {
                     headers: {
                         user_id: 1
                       }
                 });
-                setData(response.data); // Update state with fetched data
+                setData(response.data);
             } catch (err) {
                 if (axios.isCancel(err)) {
                     console.log('Request canceled', err.message);
                 } else {
-                    setError(err); // Handle the error
+                    setError(err);
                 }
             } finally {
-                setLoading(false); // Ensure loading is set to false
+                setLoading(false);
             }
         };
 
         fetchData();
-    }, []); // Depend on url and options
+    }, [url]);
 
     return { data, loading, error };
 }

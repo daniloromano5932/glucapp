@@ -37,7 +37,7 @@ function UserProfile() {
         .catch((err => console.log(err)))
     }
     data();
-  }, [])
+  }, [baseURL])
 
   useEffect(() => {
     const userInfo = async () => {
@@ -49,20 +49,20 @@ function UserProfile() {
         })
         .then((res) => {
           setUserDetails({
-        "First Name": res.data[0].first_name,
-        "Surname": res.data[0].surname,
-        "Eemail": res.data[0].email,
-        "Date of Birth": res.data[0].date_of_birth,
-        "Phone Number": res.data[0].phone_number,
-        "Address": res.data[0].address,
-        "Codice Fiscale": res.data[0].codice_fiscale,
-        "Sex": res.data[0].sex
+            "First Name": res.data[0].first_name,
+            "Surname": res.data[0].surname,
+            "Eemail": res.data[0].email,
+            "Date of Birth": res.data[0].date_of_birth,
+            "Phone Number": res.data[0].phone_number,
+            "Address": res.data[0].address,
+            "Codice Fiscale": res.data[0].codice_fiscale,
+            "Sex": res.data[0].sex
           })
         })
         .catch((err => console.log(err)))
     }
     userInfo();
-  }, [])
+  }, [baseURL])
 
   const data = Object.entries(userDetails);
 
