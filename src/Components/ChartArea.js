@@ -7,7 +7,7 @@ function ChartArea() {
   const baseURL = process.env.REACT_APP_BASE_URL;
 
   const { data, loading, error } = useFetch(`${baseURL}measurements/unitary/glycemia?time_period=200`);
-
+  
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 

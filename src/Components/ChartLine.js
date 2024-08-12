@@ -5,7 +5,6 @@ function ChartLine() {
 
   const baseURL = process.env.REACT_APP_BASE_URL;
 
-
   const { data, loading, error } = useFetch(`${baseURL}measurements/unitary/weight?time_period=200`);
 
   if (loading) return <p>Loading...</p>;
