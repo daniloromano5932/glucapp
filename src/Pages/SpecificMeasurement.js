@@ -14,7 +14,7 @@ import { useState } from 'react';
 
 function SpecificMeasurement() {
 
-  const [timePeriod, setTimePeriod] = useState("");
+  const [timePeriod, setTimePeriod] = useState("YEAR");
 
   const handleClick = (res) => {
     setTimePeriod(res);

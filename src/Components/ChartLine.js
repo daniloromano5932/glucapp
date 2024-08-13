@@ -10,8 +10,8 @@ function ChartLine({ timePeriod }) {
 
   const dataWeight = data.map((item) => {
     const data = {
-      name: new Date(item.date).toLocaleDateString(),
-      Weight: item.value,
+      name: new Date(item.month).toLocaleDateString('en-US', {month: 'long'}),
+      Weight: Math.round(item.avg_metric),
     }
     return data;
   })

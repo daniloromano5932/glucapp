@@ -12,8 +12,8 @@ function ChartBar({timePeriod}) {
 
   const dataHeart = data.map((item) => {
     const data = {
-      name: new Date(item.date).toLocaleDateString(),
-      Heart: item.value,
+      name: new Date(item.month).toLocaleDateString('en-US', {month: 'long'}),
+      Heart: Math.round(item.avg_metric),
     }
     return data;
   })

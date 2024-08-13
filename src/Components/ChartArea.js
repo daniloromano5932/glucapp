@@ -13,8 +13,8 @@ function ChartArea({ timePeriod }) {
 
   const dataGlycemia = data.map((item) => {
     const data = {
-      name: new Date(item.date).toLocaleDateString(),
-      Glycemia: item.value,
+      name: new Date(item.month).toLocaleDateString('en-US', {month: 'long'}),
+      Glycemia: Math.round(item.avg_metric),
     }
     return data;
   })

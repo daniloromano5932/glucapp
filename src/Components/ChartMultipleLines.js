@@ -13,9 +13,9 @@ function ChartMultipleLines({timePeriod}) {
 
   const dataPressure = data.map((item) => {
     const data = {
-      name: new Date(item.date).toLocaleDateString(),
-      Max: item.max_value,
-      Min: item.min_value
+      name: new Date(item.month).toLocaleDateString('en-US', {month: 'long'}),
+      Max: Math.round(item.avg_max_metric),
+      Min: Math.round(item.avg_min_metric)
     }
     return data;
   })
