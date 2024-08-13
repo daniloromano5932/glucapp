@@ -1,11 +1,9 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import useFetch from '../Hooks/useFetch';
 
-function ChartLine() {
-
+function ChartLine({ timePeriod }) {
   const baseURL = process.env.REACT_APP_BASE_URL;
-
-  const { data, loading, error } = useFetch(`${baseURL}measurements/unitary/weight?time_period=200`);
+  const { data, loading, error } = useFetch(`${baseURL}measurements/unitary/weight?time_period=${timePeriod}`);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -34,7 +32,7 @@ function ChartLine() {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis type="number" domain={['dataMin - 3', 'dataMax + 3']} />
           <Tooltip />
           <Legend />
           <Line type="monotone" dot={false} dataKey="Weight" stroke="#8884d8" activeDot={{ r: 8 }} />

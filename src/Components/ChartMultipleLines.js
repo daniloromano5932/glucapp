@@ -2,11 +2,11 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import useFetch from '../Hooks/useFetch';
 
-function ChartMultipleLines() {
+function ChartMultipleLines({timePeriod}) {
 
   const baseURL = process.env.REACT_APP_BASE_URL;
 
-  const { data, loading, error } = useFetch(`${baseURL}measurements/unitary/blood_pressure?time_period=200`);
+  const { data, loading, error } = useFetch(`${baseURL}measurements/unitary/blood_pressure?time_period=${timePeriod}`);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -36,7 +36,7 @@ function ChartMultipleLines() {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis type="number" domain={['dataMin - 10', 'dataMax + 10']} />
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="Max" stroke="#8884d8" activeDot={{ r: 8 }} />
