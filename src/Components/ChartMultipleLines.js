@@ -2,7 +2,7 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import useFetch from '../Hooks/useFetch';
 
-function ChartMultipleLines({timePeriod}) {
+function ChartMultipleLines({ timePeriod }) {
 
   const baseURL = process.env.REACT_APP_BASE_URL;
 
@@ -12,12 +12,28 @@ function ChartMultipleLines({timePeriod}) {
   if (error) return <p>Error: {error.message}</p>;
 
   const dataPressure = data.map((item) => {
-    const data = {
-      name: new Date(item.month).toLocaleDateString('en-US', {month: 'long'}),
-      Max: Math.round(item.avg_max_metric),
-      Min: Math.round(item.avg_min_metric)
+    if (item.month) {
+      const data = {
+        name: new Date(item.month).toLocaleDateString('en-US', { month: 'long' }),
+        Max: Math.round(item.avg_max_metric),
+        Min: Math.round(item.avg_min_metric)
+      }
+      return data;
+    } else if (item.day_of_month) {
+      const data = {
+        name: new Date(item.day_of_month).toLocaleDateString('en-US', { day: 'numeric' }),
+        Max: Math.round(item.avg_max_metric),
+        Min: Math.round(item.avg_min_metric)
+      }
+      return data;
+    } else if (item.day_of_week) {
+      const data = {
+        name: new Date(item.day_of_week).toLocaleDateString('en-US', { weekday: 'short' }),
+        Max: Math.round(item.avg_max_metric),
+        Min: Math.round(item.avg_min_metric)
+      }
+      return data;
     }
-    return data;
   })
 
   return (

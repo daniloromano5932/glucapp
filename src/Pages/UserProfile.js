@@ -131,7 +131,6 @@ function UserProfile() {
               value={averageMeasurements.averageWeight}
             />
           </MDBCol>
-
         </MDBRow>
       </MDBContainer>
     </div>

@@ -1,9 +1,11 @@
+import Button from "./Button";
+
 function ChartsNavbar({ onClick }) {
   return (
     <nav className="navbar navbar-expand-lg bg-body">
       <div className="container-fluid">
-        <button
-          data-mdb-collapse-init
+        <Button
+          data-mdb-collapse-init={true}
           className="navbar-toggler"
           type="button"
           data-mdb-target="#navbarExample01"
@@ -12,20 +14,20 @@ function ChartsNavbar({ onClick }) {
           aria-label="Toggle navigation"
         >
           <i className="fas fa-bars"></i>
-        </button>
+        </Button>
         <div className="collapse navbar-collapse" id="navbarExample01">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item active">
-              <button className="nav-link" onClick={() => onClick('WEEK')}>WEEK</button>
+              <Button className="nav-link" text="WEEK" onClick={() => onClick('WEEK')}/>
             </li>
             <li className="nav-item">
-              <button className="nav-link" onClick={() => onClick('MONTH')}>MONTH</button>
+              <Button className="nav-link" text="MONTH" onClick={() => onClick('MONTH')}/>
             </li>
             <li className="nav-item">
-              <button className="nav-link" onClick={() => onClick('QUARTER')}>QUARTER</button>
+              <Button className="nav-link" text="QUARTER" onClick={() => onClick('QUARTER')}/>
             </li>
             <li className="nav-item">
-              <button className="nav-link" onClick={() => onClick('YEAR')}>YEAR</button>
+              <Button className="nav-link" text="YEAR" onClick={() => onClick('YEAR')}/>
             </li>
           </ul>
         </div>

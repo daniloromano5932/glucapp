@@ -12,11 +12,25 @@ function ChartArea({ timePeriod }) {
   if (error) return <p>Error: {error.message}</p>;
 
   const dataGlycemia = data.map((item) => {
-    const data = {
-      name: new Date(item.month).toLocaleDateString('en-US', {month: 'long'}),
-      Glycemia: Math.round(item.avg_metric),
+    if (item.month) {
+      const data = {
+        name: new Date(item.month).toLocaleDateString('en-US', {month: 'long'}),
+        Glycemia: Math.round(item.avg_metric),
+      }
+      return data;
+    } else if (item.day_of_month) {
+      const data = {
+        name: new Date(item.day_of_month).toLocaleDateString('en-US', {day: 'numeric'}),
+        Glycemia: Math.round(item.avg_metric),
+      }
+      return data;
+    } else if (item.day_of_week) {
+      const data = {
+        name: new Date(item.day_of_week).toLocaleDateString('en-US', {weekday: 'short'}),
+        Glycemia: Math.round(item.avg_metric),
+      }
+      return data;
     }
-    return data;
   })
 
   return (
