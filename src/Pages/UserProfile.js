@@ -52,7 +52,7 @@ function UserProfile() {
             "First Name": res.data[0].first_name,
             "Surname": res.data[0].surname,
             "Eemail": res.data[0].email,
-            "Date of Birth": res.data[0].date_of_birth,
+            "Date of Birth": new Date(res.data[0].date_of_birth).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'}),
             "Phone Number": res.data[0].phone_number,
             "Address": res.data[0].address,
             "Codice Fiscale": res.data[0].codice_fiscale,

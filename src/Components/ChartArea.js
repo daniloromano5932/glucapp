@@ -30,7 +30,7 @@ function ChartArea({ timePeriod }) {
         Glycemia: Math.round(item.avg_metric),
       }
       return data;
-    } else if (item.quarterly_month) {
+    } else {
       const data = {
         name: new Date(item.quarterly_month).toLocaleDateString('en-US', {month: 'long'}),
         Glycemia: Math.round(item.avg_metric),
