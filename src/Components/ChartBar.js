@@ -30,6 +30,12 @@ function ChartBar({timePeriod}) {
         Heart: Math.round(item.avg_metric),
       }
       return data;
+    } else if (item.quarterly_month) {
+      const data = {
+        name: new Date(item.quarterly_month).toLocaleDateString('en-US', {month: 'long'}),
+        Heart: Math.round(item.avg_metric),
+      }
+      return data;
     }
   })
 

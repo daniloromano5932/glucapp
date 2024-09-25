@@ -33,6 +33,13 @@ function ChartMultipleLines({ timePeriod }) {
         Min: Math.round(item.avg_min_metric)
       }
       return data;
+    } else if (item.quarterly_month) {
+      const data = {
+        name: new Date(item.quarterly_month).toLocaleDateString('en-US', { month: 'long' }),
+        Max: Math.round(item.avg_max_metric),
+        Min: Math.round(item.avg_min_metric)
+      }
+      return data;
     }
   })
 
