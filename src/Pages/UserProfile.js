@@ -7,6 +7,7 @@ import {
   MDBCardBody
 } from 'mdb-react-ui-kit';
 import Button from '../Components/Button';
+import Image from '../Components/Image';
 import UserProfileRow from '../Components/UserProfileRow';
 import AverageMeasurement from "../Components/AverageMeasurement";
 import axios from 'axios';
@@ -51,7 +52,7 @@ function UserProfile() {
           setUserDetails({
             "First Name": res.data[0].first_name,
             "Surname": res.data[0].surname,
-            "Eemail": res.data[0].email,
+            "Email": res.data[0].email,
             "Date of Birth": new Date(res.data[0].date_of_birth).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'}),
             "Phone Number": res.data[0].phone_number,
             "Address": res.data[0].address,
@@ -70,12 +71,13 @@ function UserProfile() {
     <div>
       <MDBContainer className="py-5">
         <MDBRow className='g-0'>
-          <MDBCardImage
-            src="./images/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg"
-            alt="avatar"
-            className="rounded-circle"
-            style={{ width: '150px' }}
-            fluid />
+          <Image
+          src="./images/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg"
+          alt="avatar"
+          className="rounded-circle"
+          style={{ width: '150px' }}
+          fluid
+          />
         </MDBRow>
         <MDBCol lg="6">
           <MDBCard className="mb-4">
