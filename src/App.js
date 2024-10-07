@@ -13,13 +13,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <Link to="/"><Button variant="primary">Home</Button></Link>
-        <Link to="/login"><Button variant="primary">Login</Button></Link>
-        <Link to="/signup"><Button variant="primary">Signup</Button></Link>
-        <Link to="/user"><Button variant="primary">User Page</Button></Link>
-        <Link to={`/measurement/${type}`}><Button variant="primary">Specific Measurement</Button></Link>
-      </div>
+      <nav style={{ display: 'flex', gap: 16, background: 'aliceblue', padding: 16 }}>
+        <Link to="/">Home</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/signup">Signup</Link>
+        <Link to="/user">User Page</Link>
+        <Link to={`/measurement/${type}`}>Specific Measurement</Link>
+      </nav>
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/login' element={<Login />} />

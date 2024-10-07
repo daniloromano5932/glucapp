@@ -2,7 +2,6 @@ import {
   MDBCol,
   MDBContainer,
   MDBRow,
-  MDBCardImage,
   MDBCard,
   MDBCardBody
 } from 'mdb-react-ui-kit';
@@ -35,7 +34,10 @@ function UserProfile() {
             "averageWeight": res.data.averageWeight
           })
         })
-        .catch((err => console.log(err)))
+        .catch((err) => {
+          setAverageMeasurements(err);
+          console.log(err)
+        })
     }
     data();
   }, [baseURL])
@@ -117,7 +119,7 @@ function UserProfile() {
           <AverageMeasurement
             className="square bg-primary rounded-circle "
             name="Blood Pressure"
-            value={`${averageMeasurements.averageMaxBloodPressure}/${averageMeasurements.averageMinBloodPressure}`}
+            value={averageMeasurements.averageMaxBloodPressure === undefined ? '' : `${averageMeasurements.averageMaxBloodPressure}/${averageMeasurements.averageMinBloodPressure}`}
           />
         </MDBCol>
         <MDBRow className='g-0'>

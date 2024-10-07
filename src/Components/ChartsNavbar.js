@@ -16,7 +16,7 @@ function ChartsNavbar({ onClick }) {
           <i className="fas fa-bars"></i>
         </Button>
         <div className="collapse navbar-collapse" id="navbarExample01">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-12">
             <li className="nav-item active">
               <Button className="nav-link" text="WEEK" onClick={() => onClick('WEEK')}/>
             </li>

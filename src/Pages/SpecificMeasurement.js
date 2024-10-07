@@ -22,8 +22,8 @@ function SpecificMeasurement() {
 
   return (
     <MDBContainer className="py-5">
-      <MDBRow className='g-0'>
-        <MDBCol md='6' className='me-10' >
+      <MDBRow>
+        <MDBCol md='6'>
           <MDBCard className="mb-10 me-10">
             <MDBCardBody className='d-flex flex-column' >
               <h1>WEIGHT</h1>
