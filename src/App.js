@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import Signup from './Pages/Signup';
 import UserProfile from './Pages/UserProfile';
+import UserProfileV2 from './Pages/UserProfileV2';
 import SpecificMEasurement from './Pages/SpecificMeasurement';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Link to="/login">Login</Link>
         <Link to="/signup">Signup</Link>
         <Link to="/user">User Page</Link>
+        <Link to="/user2">User Page V2</Link>
         <Link to={`/measurement/${type}`}>Specific Measurement</Link>
       </nav>
       <Routes>
@@ -26,6 +28,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/user' element={<UserProfile />} />
         <Route path='/measurement' element={<SpecificMEasurement />} />
+        <Route path='/user2' element={<UserProfileV2 />} />
       </Routes>
     </BrowserRouter>
   );

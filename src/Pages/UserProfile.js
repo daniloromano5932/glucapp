@@ -73,13 +73,13 @@ function UserProfile() {
     <div>
       <MDBContainer className="py-5">
         <MDBRow className='g-0'>
-          <Image
+          {/* <Image
           src="./images/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg"
           alt="avatar"
           className="rounded-circle"
           style={{ width: '150px' }}
           fluid
-          />
+          /> */}
         </MDBRow>
         <MDBCol lg="6">
           <MDBCard className="mb-4">

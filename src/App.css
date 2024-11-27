@@ -18,6 +18,7 @@ body {
 
 .average-measurement {
   font-size: 6rem;
+  border-radius: 25% !important;
 }
 
 .center {
@@ -27,3 +28,25 @@ body {
 .gap-12 {
   gap: 12px;
 }
+
+.user-info {
+  background-color: blanchedalmond;
+  flex: 1;
+  justify-content: center;
+  align-items: center;   
+  height: 100vh;           
+}
+
+
+
+.user-average-measurements {
+  flex: 1;
+  background-color: aquamarine;
+}
+
+
+
+.body, .user-average-measurements {
+  display: flex;
+}
+

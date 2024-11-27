@@ -11,9 +11,8 @@ function UserProfileRow({ label, value }) {
         <MDBCardText>{label}</MDBCardText>
       </MDBCol>
       <MDBCol sm="9">
-        {/* <MDBCardText className="text-muted">{value}</MDBCardText> */}
-        <MDBCardText className="text-muted"><input placeholder={value} size={30}></input></MDBCardText>
-
+        <MDBCardText>{value}</MDBCardText>
+        {/* <MDBCardText className="text-muted"><input placeholder={value} size={30}></input></MDBCardText> */}
       <hr/>
       </MDBCol>
     </MDBRow>

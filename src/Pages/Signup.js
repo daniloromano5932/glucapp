@@ -51,6 +51,7 @@ function Signup() {
                 text="SIGNUP"
                 className="mb-4 px-5 button"
                 size='lg'
+                as="button"
               />
               <LegalFooter />
             </MDBCardBody>

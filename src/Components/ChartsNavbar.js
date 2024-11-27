@@ -12,22 +12,23 @@ function ChartsNavbar({ onClick }) {
           aria-controls="navbarExample01"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          as="button"
         >
           <i className="fas fa-bars"></i>
         </Button>
         <div className="collapse navbar-collapse" id="navbarExample01">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-12">
             <li className="nav-item active">
-              <Button className="nav-link" text="WEEK" onClick={() => onClick('WEEK')}/>
+              <Button as="button" className="nav-link" text="WEEK" onClick={() => onClick('WEEK')}/>
             </li>
             <li className="nav-item">
-              <Button className="nav-link" text="MONTH" onClick={() => onClick('MONTH')}/>
+              <Button as="button" className="nav-link" text="MONTH" onClick={() => onClick('MONTH')}/>
             </li>
             <li className="nav-item">
-              <Button className="nav-link" text="QUARTER" onClick={() => onClick('QUARTER')}/>
+              <Button as="button" className="nav-link" text="QUARTER" onClick={() => onClick('QUARTER')}/>
             </li>
             <li className="nav-item">
-              <Button className="nav-link" text="YEAR" onClick={() => onClick('YEAR')}/>
+              <Button as="button" className="nav-link" text="YEAR" onClick={() => onClick('YEAR')}/>
             </li>
           </ul>
         </div>
