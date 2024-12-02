@@ -5,7 +5,7 @@ import {
   MDBCard,
   MDBCardBody
 } from 'mdb-react-ui-kit';
-import Button from '../Components/Button';
+import Button from '../Components/Button.tsx';
 import Image from '../Components/Image';
 import UserBio from '../Components/UserBio';
 import UserProfileRow from '../Components/UserProfileRow';

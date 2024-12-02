@@ -8,7 +8,7 @@ import {
   from 'mdb-react-ui-kit';
 
 import { Link } from "react-router-dom";
-import Button from '../Components/Button';
+import Button from '../Components/Button.tsx';
 import Input from '../Components/Input';
 import Logo from '../Components/Logo';
 import Image from '../Components/Image';
